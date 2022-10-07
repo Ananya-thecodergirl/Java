@@ -1,16 +1,23 @@
+import java.util.Scanner;
+
+public class Reverse {
     public static void main (String[] args) {
 
-        String str= "Ananya", nstr="";
-        char ch;
 
-        System.out.print("Original word: ");
-        System.out.println("Ananya"); //Example word
+        Reverse rs= new Reverse();
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter a String");
+        String str = sc.nextLine();
+        sc.close();
+        String reversed = reversestr(str);
 
-        for (int i=0; i<str.length(); i++)
-        {
-            ch= str.charAt(i); //extracts each character
-            nstr= ch+nstr; //adds each character in front of the existing string
-        }
-        System.out.println("Reversed word: "+ nstr);
+
+    }
+    static String reversestr(String s){
+
+        if(s.isEmpty())
+            return s;
+        return reversestr(s.substring(1))+s.charAt(0);   //using recursion
+        
     }
 }
